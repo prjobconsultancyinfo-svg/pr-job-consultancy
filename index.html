@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PR Job Consultancy | Gorakhpur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
+body{background:#fff;color:#111;line-height:1.6}
+
+/* HEADER */
+/* HEADER */
+header{
+  background:#000;
+  padding:35px 30px 15px;   /* 👈 TOP padding extra */
+  display:flex;
+  align-items:flex-end;     /* 👈 menu niche rahe */
+  justify-content:space-between;
+  position:relative;        /* 👈 REQUIRED */
+  min-height:95px;          /* 👈 LOGIN ke liye space */
+}
+/* TOP RIGHT LOGIN (ADMIN + USER) */
+.top-login{
+  position:absolute;
+  top:10px;
+  right:30px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:2px;
+  z-index:20;
+}
+
+
+.top-login a{
+color:#d4af37;          /* GOLD */
+font-weight:bold;
+text-decoration:none;
+font-size:14px;
+}
+
+.top-login a:hover{
+text-decoration:underline;
+}
+background:#000;
+padding:15px 30px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+position:relative;   /* IMPORTANT */
+}
+header img{height:60px}
+nav a{
+color:#d4af37;
+margin-left:18px;
+text-decoration:none;
+font-weight:bold;
+}
+nav a:hover{text-decoration:underline}
+
+/* HERO */
+.hero{
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url('office.jpg') center/cover no-repeat;
+padding:110px 20px;
+text-align:center;
+color:#fff;
+}
+.hero h1{font-size:42px;color:#d4af37}
+.hero p{font-size:18px}
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 30px;
+background:#d4af37;
+color:#000;
+border-radius:30px;
+font-weight:bold;
+text-decoration:none;
+}
+
+/* SECTION */
+section{padding:60px 20px;text-align:center}
+section h2{color:#d4af37;margin-bottom:20px}
+
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+.card{
+border:1px solid #ddd;
+padding:25px;
+border-radius:10px;
+background:#f9f9f9;
+}
+
+/* JOBS */
+.search{padding:10px;width:280px}
+.filters button{padding:8px 14px;margin:5px;cursor:pointer}
+.job{
+border:1px solid #ddd;
+padding:15px;
+margin:12px auto;
+max-width:600px;
+text-align:left;
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:1100px;
+margin:auto;
+}
+.gallery img{
+width:100%;
+border-radius:12px;
+cursor:pointer;
+}
+
+/* POPUP */
+#popup{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.8);
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+#popup img{max-width:90%;max-height:90%}
+
+/* FORM */
+.form-box{
+max-width:450px;
+margin:20px auto;
+border:1px solid #ddd;
+padding:25px;
+border-radius:10px;
+}
+.form-box input,.form-box textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+}
+.form-box button{
+background:#d4af37;
+border:none;
+padding:12px;
+width:100%;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* ADMIN */
+.admin-box{
+max-width:450px;
+margin:30px auto;
+border:1px solid #ccc;
+padding:20px;
+}
+
+/* FOOTER */
+footer{
+background:#000;
+color:#fff;
+padding:20px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:#fff;
+padding:14px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <!-- TOP RIGHT LOGIN BOX -->
+  <div class="top-login">
+    <a href="#admin">Admin Login</a>
+    <a href="#paid">User Login</a>
+  </div>
+
+  <img src="logo.png">
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div id="home" class="hero">
+<h1>PR Job Consultancy</h1>
+<p>Trusted Placement & Manpower Solutions</p>
+<a class="btn" href="https://wa.me/919219180554">Chat on WhatsApp</a>
+</div>
+
+<section id="about">
+<h2>About Us</h2>
+<p>PR Job Consultancy provides professional placement assistance and manpower services.</p>
+</section>
+
+<section id="services">
+<h2>Our Services</h2>
+<div class="services">
+<div class="card">Job Placement Assistance</div>
+<div class="card">Manpower Consultancy</div>
+<div class="card">HR & Recruitment Support</div>
+</div>
+</section>
+
+<section id="jobs">
+  <h2>Latest Job Vacancies</h2>
+
+  <input class="search"
+         id="jobSearch"
+         placeholder="Search job / location"
+         onkeyup="searchJobs()">
+
+  <div class="filters">
+    <button onclick="filterJobs('all')">All</button>
+    <button onclick="filterJobs('private')">Private</button>
+    <button onclick="filterJobs('government')">Government</button>
+    <button onclick="filterJobs('contract')">Contract</button>
+    <button onclick="filterJobs('overseas')">Overseas</button>
+  </div>
+
+  <!-- JOB 1 -->
+  <div class="job" data-category="private" data-date="2025-01-15">
+    <b>Office Assistant</b><br>
+    Category: Private<br>
+    Location: Gorakhpur
+  </div>
+
+  <!-- JOB 2 -->
+  <div class="job" data-category="overseas" data-date="2025-02-01">
+    <b>Warehouse Helper (Dubai)</b><br>
+    Category: Overseas<br>
+    Salary: ₹35,000 – ₹45,000
+  </div>
+<div class="job" data-category="government" data-date="2025-02-10">
+  <b>Clerk (District Office)</b><br>
+  Category: Government<br>
+  Location: Gorakhpur
+</div>
+<div class="job" data-category="contract" data-date="2025-03-01">
+  <b>Site Supervisor</b><br>
+  Category: Contract<br>
+  Location: Lucknow
+</div>
+
+</section>
+
+<section id="gallery">
+<h2>Our Gallery</h2>
+<div class="gallery">
+<img src="gallery/job1.jpg" loading="lazy" onclick="openPopup(this.src)">
+<img src="gallery/job2.jpg" loading="lazy" onclick="openPopup(this.src)">
+<img src="gallery/job3.jpg" loading="lazy" onclick="openPopup(this.src)">
+</div>
+</section>
+
+<section id="paid">
+<h2>Paid Registration (Priority Assistance)</h2>
+<div class="form-box">
+<form action="https://formsubmit.co/prjobconsultancy.info@gmail.com" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="_captcha" value="false">
+<input name="name" placeholder="Full Name" required>
+<input name="mobile" placeholder="Mobile Number" required>
+<input name="email" type="email" placeholder="Email" required>
+<p><b>Registration Fee: ₹1000</b></p>
+<img src="gift.jpg" style="max-width:220px">
+<p>After job confirmation, claim your 100% gift</p>
+<input type="file" name="payment_screenshot" required>
+<button type="submit">Submit Paid Registration</button>
+</form>
+</div>
+</section>
+
+<section id="contact">
+<h2>Free Registration / Contact Us</h2>
+<div class="form-box">
+<form action="https://formsubmit.co/prjobconsultancy.info@gmail.com" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="_captcha" value="false">
+<input name="name" placeholder="Full Name" required>
+<input name="mobile" placeholder="Mobile Number" required>
+<input name="email" type="email" placeholder="Email">
+<input type="file" name="resume" required>
+<button type="submit">Submit Resume</button>
+</form>
+</div>
+</section>
+
+<section id="admin">
+<h2>Admin Dashboard (Basic)</h2>
+<div class="admin-box">
+<p>Admin data is received via Gmail & Google Sheet.</p>
+<p>No server / backend required.</p>
+</div>
+</section>
+
+<footer>
+© 2025 PR Job Consultancy | All Rights Reserved
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919219180554">WhatsApp</a>
+
+<div id="popup" onclick="this.style.display='none'">
+<img id="popupImg">
+</div>
+
+<script>
+function openPopup(src){
+  document.getElementById('popup').style.display='flex';
+  document.getElementById('popupImg').src = src;
+}
+
+/* ===== 6 MONTH OLD JOB AUTO HIDE ===== */
+function hideOldJobs() {
+  const jobs = document.querySelectorAll('.job');
+  const today = new Date();
+
+  jobs.forEach(job => {
+    const jobDateStr = job.getAttribute('data-date');
+    if (!jobDateStr) return;
+
+    const jobDate = new Date(jobDateStr);
+    const diffMonths =
+      (today.getFullYear() - jobDate.getFullYear()) * 12 +
+      (today.getMonth() - jobDate.getMonth());
+
+    if (diffMonths >= 6) {
+      job.style.display = "none";
+    }
+  });
+}
+
+/* Page load par auto run */
+hideOldJobs();
+</script>
+
+</body>
+</html>

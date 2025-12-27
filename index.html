@@ -262,6 +262,43 @@ form input,form select{
 
 <h2 style="margin-top:40px">Paid Registration</h2>
 
+<!-- 💳 PAYMENT INSTRUCTIONS -->
+<div style="
+  border:2px solid gold;
+  border-radius:12px;
+  padding:15px;
+  margin-bottom:20px;
+  text-align:center;
+  background:#fffdf7;
+">
+
+  <h3 style="color:#b08d2c; margin-bottom:10px">
+    Pay Registration Fee
+  </h3>
+
+  <p style="font-size:14px; margin-bottom:10px">
+    Scan QR using <b>GPay / PhonePe / Paytm / Any UPI App</b>
+  </p>
+
+  <img 
+    src="upi-qr.jpg"
+    alt="UPI QR Code"
+    style="
+      max-width:220px;
+      border:1px solid #ccc;
+      border-radius:10px;
+      margin-bottom:10px;
+    "
+  >
+
+  <p style="font-size:13px; color:#555">
+    Amount: <b>₹___</b><br>
+    UPI ID: <b>yourupi@bank</b>
+  </p>
+
+</div>
+
+<!-- 🧾 PAID REGISTRATION FORM -->
 <form
   name="paid-registration"
   method="POST"
@@ -278,13 +315,20 @@ form input,form select{
   <option value="With Gift Package">With Gift Package</option>
 </select>
 
-<input type="text" name="transaction_id" placeholder="Transaction ID" required>
+<input 
+  type="text"
+  name="transaction_id"
+  placeholder="Enter UPI Transaction ID"
+  required
+>
 
-<button type="submit">Submit After Payment</button>
+<button type="submit">
+  Submit After Payment
+</button>
 
 </form>
 
-<!-- 🎁 GIFT SECTION (FORM KE NICHE) -->
+<!-- 🎁 GIFT INFO -->
 <div style="text-align:center; margin-top:20px">
 
   <img 
@@ -307,10 +351,7 @@ form input,form select{
     Claim your gift after confirmation of the job
   </p>
 
-  <p style="
-    font-size:12px;
-    color:#777;
-  ">
+  <p style="font-size:12px; color:#777">
     * Valid for paid customers only
   </p>
 

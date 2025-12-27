@@ -263,13 +263,26 @@ form input,form select{
 </form>
 
 <h2 style="margin-top:40px">Paid Registration</h2>
-<form>
-  <input placeholder="Name">
-  <input placeholder="Mobile">
-  <select>
-    <option>With Gift Package</option>
+
+<form
+  name="paid-registration"
+  method="POST"
+  data-netlify="true"
+  action="/thank-you.html"
+>
+
+  <input type="hidden" name="form-name" value="paid-registration">
+
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="tel" name="mobile" placeholder="Mobile" required>
+
+  <select name="package" required>
+    <option value="">Select Package</option>
+    <option value="With Gift Package">With Gift Package</option>
   </select>
-  <button>Pay & Register</button>
+
+  <button type="submit">Pay & Register</button>
+
 </form>
 </section>
 

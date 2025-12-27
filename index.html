@@ -263,22 +263,37 @@ form input,form select{
 <h2 style="margin-top:40px">Paid Registration</h2>
 
 <form
-  name="paid-registration"
-  method="POST"
-  data-netlify="true"
+ name="paid-registration"
+ method="POST"
+ data-netlify="true"
 >
 
-  <input type="hidden" name="form-name" value="paid-registration">
+<!-- 👇 GIFT IMAGE YAHI -->
+<img 
+  src="gift.jpg" 
+  alt="Gift Package"
+  style="
+    max-width:220px;
+    display:block;
+    margin:15px auto;
+    border:2px solid gold;
+    border-radius:10px;
+  "
+>
 
-  <input type="text" name="name" placeholder="Name" required>
-  <input type="tel" name="mobile" placeholder="Mobile" required>
+<input type="hidden" name="form-name" value="paid-registration">
 
-  <select name="package" required>
-    <option value="">Select Package</option>
-    <option value="With Gift Package">With Gift Package</option>
-  </select>
+<input type="text" name="name" placeholder="Name" required>
+<input type="tel" name="mobile" placeholder="Mobile" required>
 
-  <button type="submit">Pay & Register</button>
+<select name="package" required>
+  <option value="">Select Package</option>
+  <option value="With Gift Package">With Gift Package</option>
+</select>
+
+<input type="text" name="transaction_id" placeholder="Transaction ID" required>
+
+<button type="submit">Submit After Payment</button>
 
 </form>
 </section>

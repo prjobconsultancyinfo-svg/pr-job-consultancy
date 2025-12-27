@@ -242,11 +242,23 @@ form input,form select{
 
 <section id="contact">
 <h2>Free Registration</h2>
-<form>
-  <input placeholder="Name">
-  <input placeholder="Mobile">
-  <input type="file">
-  <button>Submit</button>
+<form 
+  name="free-registration"
+  method="POST"
+  data-netlify="true"
+  enctype="multipart/form-data"
+>
+
+  <input type="hidden" name="form-name" value="free-registration">
+
+  <input type="text" name="name" placeholder="Name" required>
+
+  <input type="tel" name="mobile" placeholder="Mobile" required>
+
+  <input type="file" name="resume" required>
+
+  <button type="submit">Submit</button>
+
 </form>
 
 <h2 style="margin-top:40px">Paid Registration</h2>

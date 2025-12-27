@@ -1,167 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PR Job Consultancy | Gorakhpur</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PR Job Consultancy | Gorakhpur</title>
 
-  <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-      font-family:Arial, sans-serif;
-    }
+<style>
+/* ===== RESET ===== */
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;}
+body{background:#fff;color:#111;line-height:1.6}
 
-    body{
-      background:#fff;
-      color:#111;
-      line-height:1.6;
-    }
-
-    /* ================= HEADER ================= */
-    header {
-  background: #000;
-  padding: 50px 30px 15px;   /* top padding zyada */
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  position: relative;
+/* ===== HEADER ===== */
+header{
+  background:#000;
+  padding:55px 30px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  position:relative;
 }
 
-/* ===== TOP RIGHT LOGIN FIX ===== */
-.top-login {
-  position: absolute;
-  top: 10px;          /* header ke bilkul upar */
-  right: 30px;
-  display: flex;
-  flex-direction: column;  /* 2 line me */
-  align-items: flex-end;
-  gap: 4px;
-  z-index: 999;
+/* LOGO */
+header img{
+  height:60px;
+  max-width:180px;
+  object-fit:contain;
 }
 
-.top-login a {
-  color: #d4af37;     /* GOLD */
-  font-size: 13px;
-  font-weight: bold;
-  text-decoration: none;
+/* ===== LOGIN (TOP RIGHT) ===== */
+.top-login{
+  position:absolute;
+  top:10px;
+  right:30px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  z-index:999;
+}
+.top-login a{
+  color:#d4af37;
+  font-size:13px;
+  font-weight:bold;
+  text-decoration:none;
+}
+.top-login a:hover{text-decoration:underline}
+
+/* ===== NAV ===== */
+nav a{
+  color:#d4af37;
+  margin-left:18px;
+  text-decoration:none;
+  font-weight:bold;
+}
+nav a:hover{text-decoration:underline}
+
+/* ===== HERO ===== */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("office.jpg") center/cover no-repeat;
+  padding:110px 20px;
+  text-align:center;
+  color:#fff;
+}
+.hero h1{font-size:42px;color:#d4af37}
+.hero p{font-size:18px;margin:12px 0}
+.hero .btn{
+  display:inline-block;
+  margin-top:15px;
+  background:#25D366;
+  color:#fff;
+  padding:12px 26px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-.top-login a:hover {
-  text-decoration: underline;
+/* ===== SECTION ===== */
+section{padding:60px 20px;max-width:1200px;margin:auto}
+h2{text-align:center;color:#d4af37;margin-bottom:25px}
+
+/* ===== JOB FILTER ===== */
+.filter-bar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-bottom:20px;
+}
+.filter-bar button{
+  background:#000;
+  color:#d4af37;
+  border:1px solid #d4af37;
+  padding:6px 14px;
+  cursor:pointer;
+}
+.filter-bar input{
+  padding:6px;
+  min-width:220px;
 }
 
-    /* NAV */
-    nav a{
-      color:#d4af37;
-      margin-left:18px;
-      font-weight:bold;
-      text-decoration:none;
-    }
+/* JOB LIST */
+.jobs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.job{
+  border:1px solid #ddd;
+  padding:15px;
+}
+.job span{font-size:13px;color:#777}
 
-    nav a:hover{
-      text-decoration:underline;
-    }
+/* ===== GALLERY ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+.gallery img{
+  width:100%;
+  cursor:pointer;
+  border-radius:6px;
+}
 
-    /* ================= HERO ================= */
-    .hero{
-      background:
-        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-        url("office.jpg") center/cover no-repeat;
-      padding:120px 20px;
-      text-align:center;
-      color:#fff;
-    }
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  justify-content:center;
+  align-items:center;
+}
+.modal img{max-width:90%;max-height:90%}
 
-    .hero h1{
-      font-size:42px;
-      color:#d4af37;
-      margin-bottom:10px;
-    }
+/* ===== FORMS ===== */
+form{
+  max-width:500px;
+  margin:auto;
+}
+form input,form select{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+}
 
-    .hero p{
-      font-size:18px;
-      margin-bottom:25px;
-    }
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#25D366;
+  color:#fff;
+  padding:14px;
+  border-radius:50%;
+  font-weight:bold;
+  text-decoration:none;
+  z-index:999;
+}
 
-    .btn{
-      background:#25D366;
-      color:#fff;
-      padding:12px 28px;
-      border-radius:30px;
-      text-decoration:none;
-      font-weight:bold;
-    }
-
-    /* ================= SECTION ================= */
-    section{
-      padding:60px 20px;
-      max-width:1100px;
-      margin:auto;
-    }
-
-    h2{
-      text-align:center;
-      margin-bottom:30px;
-      color:#d4af37;
-    }
-
-    /* ================= FOOTER ================= */
-    footer{
-      background:#000;
-      color:#fff;
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-    }
-
-    /* ================= MOBILE ================= */
-    @media(max-width:768px){
-      header{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      nav{
-        margin-top:10px;
-      }
-
-      .hero h1{
-        font-size:30px;
-      }
-
-      .top-login{
-        right:15px;
-      }
-    }
-  </style>
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  nav{font-size:14px}
+  .hero h1{font-size:32px}
+  .top-login{right:15px}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <!-- LOGIN -->
   <div class="top-login">
     <a href="#admin">Admin Login</a>
     <a href="#user">User Login</a>
   </div>
 
-  <!-- LOGO -->
-  <img src="logo.png" alt="PR Job Consultancy Logo">
+  <img src="logo.png" alt="PR Job Consultancy">
 
-  <!-- MENU -->
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="#services">Services</a>
     <a href="#jobs">Jobs</a>
+    <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- HERO -->
-<div class="hero" id="home">
+<div id="home" class="hero">
   <h1>PR Job Consultancy</h1>
   <p>Trusted Placement & Manpower Solutions</p>
   <a class="btn" href="https://wa.me/919219180554">Chat on WhatsApp</a>
@@ -170,30 +197,96 @@
 <section id="about">
   <h2>About Us</h2>
   <p>
-    PR Job Consultancy Gorakhpur provides reliable job placement services
-    in Private, Government, Contract and Overseas sectors.
+    PR Job Consultancy Gorakhpur provides placement in
+    Private, Government, Contract & Overseas sectors.
   </p>
 </section>
 
-<section id="services">
-  <h2>Our Services</h2>
-  <p>Recruitment • Manpower • Interviews • Career Guidance</p>
+<section id="jobs">
+<h2>Job Openings</h2>
+
+<div class="filter-bar">
+  <button onclick="filterJobs('all')">All</button>
+  <button onclick="filterJobs('private')">Private</button>
+  <button onclick="filterJobs('govt')">Govt</button>
+  <button onclick="filterJobs('contract')">Contract</button>
+  <button onclick="filterJobs('overseas')">Overseas</button>
+  <input id="search" placeholder="Search job..." onkeyup="searchJobs()">
+</div>
+
+<div class="jobs" id="jobList">
+  <!-- Example Jobs -->
+  <div class="job private" data-date="2025-02-01">
+    <h4>Office Executive</h4>
+    <span>Private | Gorakhpur</span>
+  </div>
+  <div class="job govt" data-date="2024-01-01">
+    <h4>Clerk</h4>
+    <span>Govt | UP</span>
+  </div>
+</div>
 </section>
 
-<section id="jobs">
-  <h2>Latest Jobs</h2>
-  <p>Private • Government • Contract • Overseas</p>
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="gallery">
+  <img src="job1.jpg" onclick="openImg(this.src)">
+  <img src="job2.jpg" onclick="openImg(this.src)">
+  <img src="job3.jpg" onclick="openImg(this.src)">
+</div>
 </section>
+
+<div class="modal" id="modal" onclick="this.style.display='none'">
+  <img id="modalImg">
+</div>
 
 <section id="contact">
-  <h2>Contact Us</h2>
-  <p>📞 919219180554</p>
-  <p>📧 prjobconsultancy.info@gmail.com</p>
+<h2>Free Registration</h2>
+<form>
+  <input placeholder="Name">
+  <input placeholder="Mobile">
+  <input type="file">
+  <button>Submit</button>
+</form>
+
+<h2 style="margin-top:40px">Paid Registration</h2>
+<form>
+  <input placeholder="Name">
+  <input placeholder="Mobile">
+  <select>
+    <option>With Gift Package</option>
+  </select>
+  <button>Pay & Register</button>
+</form>
 </section>
 
-<footer>
-  © 2025 PR Job Consultancy | Gorakhpur
-</footer>
+<a class="whatsapp" href="https://wa.me/919219180554">WA</a>
+
+<script>
+/* FILTER */
+function filterJobs(type){
+  document.querySelectorAll('.job').forEach(j=>{
+    j.style.display=(type=='all'||j.classList.contains(type))?'block':'none'
+  })
+}
+/* SEARCH */
+function searchJobs(){
+  let v=document.getElementById('search').value.toLowerCase()
+  document.querySelectorAll('.job').forEach(j=>{
+    j.style.display=j.innerText.toLowerCase().includes(v)?'block':'none'
+  })
+}
+/* 6 MONTH AUTO HIDE */
+document.querySelectorAll('.job').forEach(j=>{
+  let d=new Date(j.dataset.date)
+  if((new Date()-d)/(1000*60*60*24)>180) j.style.display='none'
+})
+/* GALLERY */
+function openImg(src){
+  document.getElementById('modal').style.display='flex'
+  document.getElementById('modalImg').src=src
+}
+</script>
 
 </body>
 </html>

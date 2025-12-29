@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login – PR Job Consultancy</title>
+</head>
+<body style="text-align:center;margin-top:100px;">
+  <h2>Admin Login</h2>
+
+  <input type="password" id="pwd" placeholder="Enter Admin Password">
+  <br><br>
+  <button onclick="login()">Login</button>
+
+  <script>
+    function login(){
+      if(document.getElementById("pwd").value === "PR@123"){
+        window.location.href = "admin-panel.html";
+      } else {
+        alert("Wrong Password");
+      }
+    }
+  </script>
+</body>
+</html>

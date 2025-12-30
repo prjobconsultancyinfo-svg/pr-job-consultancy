@@ -338,41 +338,65 @@ form input,form select{
 
 </div>
 
-<!-- 🧾 PAID REGISTRATION FORM -->
-<form id="paidRegistrationForm">
+<!-- ================= PAID REGISTRATION FORM ================= -->
 
-<input type="hidden" name="subject" value="Payment Received – Paid Registration">
+<section id="paid-registration" style="margin-top:30px;">
 
-<input type="text" name="name" placeholder="Name" required>
-<input type="tel" name="mobile" placeholder="Mobile" required>
+  <h3 style="color:gold; text-align:center;">
+    Paid Registration (₹1000)
+  </h3>
 
-<select name="package" required>
-  <option value="">Select Package</option>
-  <option value="With Gift Package">With Gift Package</option>
-</select>
+  <form id="paidRegistrationForm">
 
-<input 
-  type="text"
-  name="transaction_id"
-  placeholder="Enter UPI Transaction ID"
-  required
->
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+    >
 
-<button type="button" id="paidSubmitBtn">
-  Submit After Payment
-</button>
+    <input
+      type="tel"
+      name="mobile"
+      placeholder="Mobile Number"
+      required
+    >
 
-</form>
+    <select name="package" required>
+      <option value="">Select Package</option>
+      <option value="With Gift Package">With Gift Package</option>
+    </select>
+
+    <input
+      type="text"
+      name="transaction_id"
+      placeholder="Enter UPI Transaction ID"
+      required
+    >
+
+    <button type="submit">
+      Submit After Payment
+    </button>
+
+  </form>
+
+  <p id="paidMsg" style="margin-top:10px; font-size:14px;"></p>
+
+</section>
+
 <script>
-document.getElementById("paidSubmitBtn").addEventListener("click", function () {
+document.getElementById("paidRegistrationForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-  const form = document.getElementById("paidRegistrationForm");
+  const msg = document.getElementById("paidMsg");
+  msg.style.color = "#fff";
+  msg.innerText = "Submitting... please wait";
 
   const formData = {
-    name: form.name.value,
-    mobile: form.mobile.value,
-    package: form.package.value,
-    transaction_id: form.transaction_id.value,
+    name: this.name.value,
+    mobile: this.mobile.value,
+    package: this.package.value,
+    transaction_id: this.transaction_id.value,
     type: "PAID"
   };
 
@@ -385,16 +409,24 @@ document.getElementById("paidSubmitBtn").addEventListener("click", function () {
   })
   .then(res => res.json())
   .then(data => {
-    alert("✅ Registration submitted successfully!");
-    form.reset();
+    if (data.result === "success") {
+      msg.style.color = "lightgreen";
+      msg.innerText = "✅ Registration submitted successfully!";
+      document.getElementById("paidRegistrationForm").reset();
+    } else {
+      msg.style.color = "red";
+      msg.innerText = "❌ Something went wrong. Try again.";
+    }
   })
   .catch(err => {
-    alert("❌ Error submitting form");
     console.error(err);
+    msg.style.color = "red";
+    msg.innerText = "❌ Network / Server error";
   });
-
 });
 </script>
+
+<!-- ================= END PAID REGISTRATION ================= -->
 <!-- 🎁 GIFT INFO -->
 <div style="text-align:center; margin-top:20px">
 

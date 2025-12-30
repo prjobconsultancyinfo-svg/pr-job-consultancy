@@ -358,12 +358,43 @@ form input,form select{
   required
 >
 
-<button type="submit">
+<button type="button" id="paidSubmitBtn">
   Submit After Payment
 </button>
 
 </form>
+<script>
+document.getElementById("paidSubmitBtn").addEventListener("click", function () {
 
+  const form = document.getElementById("paidRegistrationForm");
+
+  const formData = {
+    name: form.name.value,
+    mobile: form.mobile.value,
+    package: form.package.value,
+    transaction_id: form.transaction_id.value,
+    type: "PAID"
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxq7nUSM2rxWVLaWveyekjse6K72ew-X9srY_X5Ak3KF-LrLnUPa6Zw9jytpASoFHI/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("✅ Registration submitted successfully!");
+    form.reset();
+  })
+  .catch(err => {
+    alert("❌ Error submitting form");
+    console.error(err);
+  });
+
+});
+</script>
 <!-- 🎁 GIFT INFO -->
 <div style="text-align:center; margin-top:20px">
 
